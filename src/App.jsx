@@ -1,21 +1,33 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState } from "react";
 import Header from "./assets/components/Header";
+import Sidebar from "./assets/components/SideBar";
+import TrendingTags from "./assets/components/TrendingTags";
+import TickerBar from "./assets/components/Tickerbar";
 import Footer from "./assets/components/Footer";
-import NewsCard from "./assets/components/NewsCard";
+import TradingViewWidget from "./assets/components/TradingViewWidget";
 
-function App() {
-  const [count, setCount] = useState(0)
+export default function App() {
+  const [darkMode, setDarkMode] = useState(true);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+
+  const toggleSidebar = () => setSidebarOpen((open) => !open);
 
   return (
-    <>
-      <Header/>
-      <NewsCard/>
-      <Footer />
-    </>
-  )
+    <div className={darkMode ? "dark bg-gray-900 text-white min-h-screen" : "bg-white text-gray-900 min-h-screen"}>
+      <Header darkMode={darkMode} setDarkMode={setDarkMode} toggleSidebar={toggleSidebar} />
+      <TickerBar/>
+      <Sidebar sidebarOpen={sidebarOpen} />
+      {sidebarOpen && (
+        <div
+          onClick={() => setSidebarOpen(false)}
+          className="fixed inset-0 bg-black bg-opacity-50 z-30 md:hidden"
+        />
+      )}
+      <main className="container mx-auto px-4 pt-6 pb-16">
+        <TrendingTags />
+        <TradingViewWidget/>
+      </main>
+       <Footer />
+    </div>
+  );
 }
-
-export default App

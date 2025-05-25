@@ -17,13 +17,13 @@ export default function Header({ darkMode, setDarkMode, toggleSidebar }) {
           <h1 className="text-2xl font-bold color-blue-500">Finology Ticker</h1>
         </div>
         <div className="flex items-center gap-4">
-          <button
+          {/* <button
             className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700"
             onClick={() => setDarkMode(prev => !prev)}
             aria-label="Toggle Theme"
           >
             {darkMode ? <Sun /> : <Moon />}
-          </button>
+          </button> */}
          
         
         </div>
