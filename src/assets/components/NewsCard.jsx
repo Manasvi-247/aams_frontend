@@ -1,18 +1,24 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { useEffect,useState } from "react";
+import { useEffect,useState,useContext } from "react";
+import { SentimentContext } from "../../App";
+import { Tailspin } from 'ldrs/react'
+import 'ldrs/react/Tailspin.css'
+
 export default function NewsCards() {
  const [newsCategories, setNewsCategories] = useState([]);
 
-   useEffect(() => {
-    fetch('http://localhost:3000/news/')
-      .then(res => res.json())
-      .then(newsObj => {
-        // Convert the news object to an array
-        const newsArr = Object.values(newsObj);
-        setNewsCategories(newsArr); // Set state with the array of news objects
-      });
-  }, []);
+const{response,setresponse}=useContext(SentimentContext);
+// console.log(response.news[0].title+"news response");
+  //  useEffect(() => {
+  //   fetch('http://localhost:3000/news/')
+  //     .then(res => res.json())
+  //     .then(newsObj => {
+  //       // Convert the news object to an array
+  //       const newsArr = Object.values(newsObj);
+  //       setNewsCategories(newsArr); // Set state with the array of news objects
+  //     });
+  // }, []);
 
 
 
@@ -24,7 +30,7 @@ export default function NewsCards() {
         Get all the latest share market and India stock market news and updates.
       </p>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {newsCategories.map((news, idx) => (
+        {(response != null)? Object.values(response.news).map((news, idx) => (
           <motion.div
             key={idx}
             whileHover={{ scale: 1.03,boxShadow: "0 2px 10px #22c55e" }}
@@ -41,7 +47,12 @@ export default function NewsCards() {
               </li>
             </ul>
           </motion.div>
-        ))}
+        )):<Tailspin
+  size="40"
+  stroke="5"
+  speed="0.9"
+  color="black" 
+/>}
       </div>
     </section>
  );

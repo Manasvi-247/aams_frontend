@@ -51,8 +51,10 @@ const TickerBar = () => {
     fetchPrices();
   }, []);
 
-  if (loading) return <div className="ticker-bar">Loading...</div>;
+  if (loading) return <div className="ticker-bar">Loading..ABC</div>;
   if (error) return <div className="ticker-bar">{error}</div>;
+  console.log(error);
+  console.log(loading+"it is loading");
 
   // Duplicate items for seamless looping
   const tickerItems = [...prices, ...prices];

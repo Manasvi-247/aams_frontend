@@ -1,5 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { Tailspin } from 'ldrs/react'
+import 'ldrs/react/Tailspin.css'
+
 
 export default function TrendingTags() {
   const tags = ["ITC", "RELIANCE", "HDFCBANK", "YESBANK", "IRCTC"];

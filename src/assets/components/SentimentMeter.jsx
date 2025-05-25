@@ -1,5 +1,10 @@
-import React, { useState ,useEffect} from "react";
+import React, { useState ,useEffect,createContext} from "react";
 import Papa from "papaparse";
+import { SentimentContext } from "../../App";
+import { useContext } from "react";
+import { Tailspin } from 'ldrs/react'
+import 'ldrs/react/Tailspin.css'
+
 
 export default function SentimentMeter() {
   const [csvData, setCsvData] = useState([]); // flattened [{name, exchange}]
@@ -7,7 +12,7 @@ export default function SentimentMeter() {
   const [csvLoaded, setCsvLoaded] = useState(false);
   const [selectedCompany, setSelectedCompany] = useState(null);
   const[sentimentScore, setScore]=useState(0);
-
+  const {response1,setresponse}=useContext(SentimentContext);
     // useEffect(() => {
     //   fetch('http://localhost:3000/news_sentiment/')
     //     .then(res => res.json())
@@ -104,6 +109,7 @@ export default function SentimentMeter() {
     .then((response) => {
       console.log("Backend response:", response.news_sentiment);
       setScore(Math.round(response.news_sentiment));
+      setresponse(response);
 
     })
     .catch((err) => {
@@ -114,8 +120,9 @@ export default function SentimentMeter() {
   
 
   return (
+    
     <section className="mt-8 max-w-md mx-auto text-center">
-
+     
       <div className="max-w-2xl mx-auto">
         {/* <div className="mb-4 flex flex-col sm:flex-row items-center gap-4">
           <input

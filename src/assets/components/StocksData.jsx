@@ -1,27 +1,29 @@
 import React from "react";
-import { useEffect, useState } from "react";
+import { useEffect, useState,useContext } from "react";
+import { SentimentContext } from "../../App";
 
 export default function StockData() {
   const [stockData, setStockData] = useState([]);
+  const{response,setresponse}=useContext(SentimentContext);
 
-  useEffect(() => {
-    fetch("http://localhost:3000/stock_data/")
-      .then((res) => res.json())
-      .then((newsObj) => {
+  // useEffect(() => {
+  //   fetch("http://localhost:3000/stock_data/")
+  //     .then((res) => res.json())
+  //     .then((newsObj) => {
         
 
-        setStockData(newsObj); 
-      });
-  }, []);
+  //       setStockData(newsObj); 
+  //     });
+  // }, []);
 
   return (
     <>
       <div className="max-w-5xl mx-auto bg-white dark:bg-gray-900 rounded-xl shadow p-6 space-y-4 mt-8">
         <h2 className="text-2xl font-bold mb-2 text-center">
-          {stockData.CompanyName}
+          {(response != null)?response.stock_data.CompanyName:<h1>loading....</h1>}
         </h2>
         <p className="w-full max-w-7xl mx-auto px-4 text-gray-600 dark:text-gray-300 mt-2 whitespace-pre-line leading-relaxed text-justify">
-          {stockData.Description}
+          {(response != null)?response.stock_data.Description:<h1>loading....</h1>}
         </p>
       </div>
       <div className="overflow-x-auto">
@@ -40,19 +42,19 @@ export default function StockData() {
             </tr>
             <TableRow
               label="BSE Price"
-              value={`₹${stockData.CurrentPriceBSE}`}
+              value={`₹${ (response != null)?response.stock_data.CurrentPriceBSE:<h1>loading....</h1>}`}
             />
             <TableRow
               label="NSE Price"
-              value={`₹${stockData.CurrentPriceNSE}`}
+              value={`₹${(response != null)?response.stock_data.CurrentPriceNSE:<h1>loading....</h1>}`}
             />
             <TableRow
               label="52 Week High"
-              value={`₹${stockData["52weekHigh"]}`}
+              value={`₹${  (response != null)?response.stock_data["52weekHigh"]:<h1>loading....</h1>}`}
             />
             <TableRow
               label="52 Week Low"
-              value={`₹${stockData["52weekLow"]}`}
+              value={`₹${(response != null)?response.stock_data["52weekLow"]:<h1>loading....</h1>}`}
             />
 
             {/* Valuation Metrics */}
@@ -66,18 +68,18 @@ export default function StockData() {
             </tr>
             <TableRow
               label="Price-to-Book (P/B)"
-              value={stockData.priceToBookValueRatio}
+              value={(response != null)?response.stock_data.priceToBookValueRatio:<h1>loading....</h1>}
             />
             <TableRow
               label="Price-to-Earnings (P/E)"
-              value={stockData.priceToEarningsValueRatio}
+              value={ (response != null)?response.stock_data.priceToEarningsValueRatio:<h1>loading....</h1>}
             />
             <TableRow
               label="Market Cap"
               value={
                 stockData.marketCap !== undefined &&
                 stockData.marketCap !== null
-                  ? `₹${stockData.marketCap.toLocaleString()} Cr`
+                  ? `₹${ (response != null)?response.stock_data.marketCap.toLocaleString():<h1>loading....</h1>} Cr`
                   : "N/A"
               }
             />
@@ -93,19 +95,19 @@ export default function StockData() {
             </tr>
             <TableRow
               label="ROE (5Y Avg)"
-              value={`${stockData.returnOnAverageEquity5YearAverage}%`}
+              value={`${(response != null)?response.stock_data.returnOnAverageEquity5YearAverage:<h1>loading....</h1>}%`}
             />
             <TableRow
               label="ROE (TTM)"
-              value={`${stockData.returnOnAverageEquityTrailing12Month}%`}
+              value={`${(response != null)?response.stock_data.returnOnAverageEquityTrailing12Month:<h1>loading....</h1>}%`}
             />
             <TableRow
               label="Net Margin (5Y Avg)"
-              value={`${stockData.netProfitMargin5YearAverage}%`}
+              value={`${(response != null)?response.stock_data.netProfitMargin5YearAverage:<h1>loading....</h1>}%`}
             />
             <TableRow
               label="Net Margin (TTM)"
-              value={`${stockData.netProfitMarginPercentTrailing12Month}%`}
+              value={`${ (response != null)?response.stock_data.netProfitMarginPercentTrailing12Month:<h1>loading....</h1>}%`}
             />
 
             {/* Debt & Dividends */}
@@ -119,11 +121,11 @@ export default function StockData() {
             </tr>
             <TableRow
               label="LT Debt/Equity"
-              value={stockData.ltDebtPerEquityMostRecentFiscalYear}
+              value={ (response != null)?response.stock_data.ltDebtPerEquityMostRecentFiscalYear:<h1>loading....</h1>}
             />
             <TableRow
               label="Dividend Yield"
-              value={`${stockData.dividendYieldIndicatedAnnualDividend}%`}
+              value={`${(response != null)?response.stock_data.dividendYieldIndicatedAnnualDividend:<h1>loading....</h1>}%`}
             />
           </tbody>
         </table>
