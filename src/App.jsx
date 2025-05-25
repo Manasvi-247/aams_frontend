@@ -8,6 +8,7 @@ import TradingViewWidget from "./assets/components/TradingViewWidget";
 import NewsCards from "./assets/components/NewsCard";
 import SentimentMeter from "./assets/components/SentimentMeter";
 import StockData from "./assets/components/StocksData";
+import FinalSentiment from "./assets/components/FinalSentiment";
 
 export const SentimentContext = createContext(null);
 export default function App() {
@@ -29,7 +30,9 @@ export default function App() {
         />
       )}
       <main className="container mx-auto px-4 pt-6 pb-16">
+
         <SentimentContext.Provider value={{response,setresponse}}>
+          <FinalSentiment/>
          <SentimentMeter/>
          <StockData/>
         <TrendingTags />

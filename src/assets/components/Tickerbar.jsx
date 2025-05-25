@@ -5,13 +5,13 @@ import './TickerBar.css';
 
 const companyNames = [
   'tata steel',
-  // 'icici bank',
-  // 'titan',
-  // 'bajaj finance',
-  // 'ultratech cement',
-  // 'reliance industries',
-  // 'itc',
-  // 'hdfc bank'
+  'icici bank',
+  'titan',
+  'bajaj finance',
+  'ultratech cement',
+  'reliance industries',
+  'itc',
+  'hdfc bank'
 ];
 
 const TickerBar = () => {

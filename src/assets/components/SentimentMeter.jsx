@@ -11,7 +11,7 @@ export default function SentimentMeter() {
   const [searchQuery, setSearchQuery] = useState("");
   const [csvLoaded, setCsvLoaded] = useState(false);
   const [selectedCompany, setSelectedCompany] = useState(null);
-  const[sentimentScore, setScore]=useState(0);
+  const[sentimentScore, setScore]=useState(50);
   const {response1,setresponse}=useContext(SentimentContext);
     // useEffect(() => {
     //   fetch('http://localhost:3000/news_sentiment/')
@@ -84,14 +84,16 @@ export default function SentimentMeter() {
     : [];
 
   const getSentimentLabel = (score) => {
-    if (score < 30) return "😨 Fear";
+    if(score==0) return "😐 Neutral";
+    if (score < 30 ) return "😨 Fear";
     if (score < 60) return "😐 Neutral";
     return "😎 Greed";
   };
 
   const getSentimentColor = (score) => {
+    if(score==0) return "text-yellow-600";
     if (score < 30) return "text-red-600";
-    if (score < 60) return "text-yellow-600";
+    if (score < 60 ) return "text-yellow-600";
     return "text-green-600";
   };
 
