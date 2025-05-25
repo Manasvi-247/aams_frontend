@@ -8,9 +8,9 @@ export default function NewsCards() {
     fetch('http://localhost:3000/news/')
       .then(res => res.json())
       .then(newsObj => {
-        
+        // Convert the news object to an array
         const newsArr = Object.values(newsObj);
-        setNewsCategories(newsArr); 
+        setNewsCategories(newsArr); // Set state with the array of news objects
       });
   }, []);
 
@@ -27,9 +27,9 @@ export default function NewsCards() {
         {newsCategories.map((news, idx) => (
           <motion.div
             key={idx}
-            whileHover={{ scale: 1.03 }}
-            transition={{ type: "spring", stiffness: 300 }}
-           className="p-8 bg-gray-100 dark:bg-gray-800 rounded-2xl shadow hover:shadow-xl transition flex flex-col justify-between"
+            whileHover={{ scale: 1.03,boxShadow: "0 2px 10px #22c55e" }}
+            transition={{ type: "tween", stiffness: 300 , duration:0.6 }}
+           className="p-8 bg-gray-100 dark:bg-gray-800 rounded-2xl shadow flex flex-col justify-between"
 
           >
             <h3 className="text-lg font-semibold mb-3">{news.title}</h3>
@@ -44,5 +44,5 @@ export default function NewsCards() {
         ))}
       </div>
     </section>
-  );
+ );
 }

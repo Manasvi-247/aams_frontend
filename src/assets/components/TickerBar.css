@@ -2,7 +2,7 @@
   width: 100vw;
   background: #232b39;
   overflow: hidden;
-  border-bottom: 2px solid #1a202c;
+  border-bottom: 4px solid #22c55e;
   font-family: 'Segoe UI', Arial, sans-serif;
   position: relative;
   height: 50px; 
@@ -13,7 +13,7 @@
 .ticker-marquee {
   display: flex;
   align-items: center;
-  animation: ticker-scroll 30s linear infinite;
+  animation: ticker-scroll 10s linear infinite;
 }
 
 @keyframes ticker-scroll {
