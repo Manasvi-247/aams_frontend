@@ -1,0 +1,42 @@
+{
+    "news_sentiment": 57.76607021689415,
+    "news": {
+        "0": {
+            "title": "Reliance Industries Withdraws Application For Operation Sindoor Trademark",
+            "link": "https://www.outlookindia.com/art-entertainment/reliance-industries-withdraws-application-for-operation-sindoor-trademark-heres-full-statement",
+            "body": "Operation Sindoor was launched by Indian Armed forces, which conducted missile strikes on nine terror camps in Pakistan and Pakistan-occupied Kashmir (PoK), in the wee hours of Wednesday (May 7, 2025)..."
+        },
+        "1": {
+            "title": "Reliance Industries Withdraws 'Operation Sindoor' Trademark Application Filed by Its Jio Studio, Says Filing Was Done Without Authorisation by Junior Person",
+            "link": "https://www.latestly.com/socially/business/reliance-industries-withdraws-operation-sindoor-trademark-application-filed-by-its-jio-studio-says-filing-was-done-without-authorisation-by-junior-person-6839512.html",
+            "body": "Reliance Industries confirmed that its unit Jio Studios has withdrawn the trademark application for \"Operation Sindoor\", calling it an unauthorised filing by a junior person. The company clarified it ..."
+        },
+        "2": {
+            "title": "Reliance Industries Moves To Trademark 'Operation Sindoor': What's Behind The Move?",
+            "link": "https://www.newsx.com/india/reliance-industries-moves-to-trademark-operation-sindoor-whats-behind-the-move/",
+            "body": "Hours after India's high-profile military strike on terrorist locations across Pakistan and Pakistan-Occupied Kashmir, Reliance Industries made a move to secure the name \"Operation Sindoor\" as a trade..."
+        },
+        "3": {
+            "title": "Anant Ambani appointed executive director at Reliance Industries",
+            "link": "https://www.newsbytesapp.com/news/business/anant-ambani-steps-into-executive-role-at-reliance-industries/story",
+            "body": "A Brown University graduate, Anant now assumes his new role at RIL pending shareholder approval.\n\nNotably, Anant is the first of the Ambani siblings to be appointed as an Executive Director at Relianc..."
+        }
+    },
+    "stock_data": {
+        "CompanyName": "Reliance Industries",
+        "Description": "Reliance Industries Limited is engaged in the activities of hydrocarbon exploration and production, petroleum refining and marketing, petrochemicals, advanced materials and composites, renewables, retail and digital services. The Company\u2019s segments include Oil to Chemicals (O2C), Oil and Gas, Retail, and Digital Services. The O2C segment covers refining, petrochemicals, fuel retailing, aviation fuel, and bulk wholesale marketing, with a portfolio that includes transportation fuels, polymers, polyesters, and elastomers. The Oil and Gas segment focuses on the exploration, development, and production of crude oil and natural gas. The Retail segment involves consumer retail and related services. The Digital Services segment provides a range of digital services. It also operates an oncology-focused healthcare platform, which focuses on technology-driven cancer care. Its subsidiaries include 7-India Convenience Retail Limited, Amante India Limited, Cover Story Clothing Limited, and others.",
+        "CurrentPriceBSE": "1426.45",
+        "CurrentPriceNSE": "1426.80",
+        "52weekHigh": "1608.95",
+        "52weekLow": "1115.55",
+        "priceToBookValueRatio": 2.26,
+        "priceToEarningsValueRatio": 27.38,
+        "marketCap": 1930339.56,
+        "returnOnAverageEquity5YearAverage": 8.63,
+        "returnOnAverageEquityTrailing12Month": 8.51,
+        "ltDebtPerEquityMostRecentFiscalYear": 30.13,
+        "netProfitMargin5YearAverage": 8.87,
+        "netProfitMarginPercentTrailing12Month": 8.3,
+        "dividendYieldIndicatedAnnualDividend":0.35
+  }
+}

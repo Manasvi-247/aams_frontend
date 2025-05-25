@@ -1,28 +1,43 @@
 import React from "react";
 import { motion } from "framer-motion";
-
+import { useEffect,useState } from "react";
 export default function NewsCards() {
-  const newsCategories = ["News 1", "News 2", "News 3",];
+ const [newsCategories, setNewsCategories] = useState([]);
+
+   useEffect(() => {
+    fetch('http://localhost:3000/news/')
+      .then(res => res.json())
+      .then(newsObj => {
+        
+        const newsArr = Object.values(newsObj);
+        setNewsCategories(newsArr); 
+      });
+  }, []);
+
+
+
 
   return (
     <section className="mb-12">
       <h2 className="text-2xl font-bold mb-4">Curated News</h2>
       <p className="mb-6 text-gray-600 dark:text-gray-400">
-        Here are all the latest shared market list.
+        Get all the latest share market and India stock market news and updates.
       </p>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {newsCategories.map((title, idx) => (
+        {newsCategories.map((news, idx) => (
           <motion.div
             key={idx}
             whileHover={{ scale: 1.03 }}
             transition={{ type: "spring", stiffness: 300 }}
-            className="p-6 bg-gray-100 dark:bg-gray-800 rounded-xl shadow hover:shadow-lg transition"
+           className="p-8 bg-gray-100 dark:bg-gray-800 rounded-2xl shadow hover:shadow-xl transition flex flex-col justify-between"
+
           >
-            <h3 className="text-lg font-semibold mb-2">{title}</h3>
+            <h3 className="text-lg font-semibold mb-3">{news.title}</h3>
             <ul className="text-sm space-y-2">
               <li>
-                <p className="font-medium">Link</p>
-                <p className="text-gray-500 dark:text-gray-400 text-xs">Body</p>
+                
+                <p className="text-gray-500 dark:text-gray-400 text-sm mb-6">{news.body}</p>
+                <button onClick={() => window.location.href = `${news.link}`} className="self-start px-5 py-2 mt-auto rounded-lg bg-blue-100 text-blue-700 font-medium shadow-sm hover:bg-blue-200 hover:text-blue-900 focus:outline-none focus:ring-2 focus:ring-blue-300 transition">Read More</button>
               </li>
             </ul>
           </motion.div>
