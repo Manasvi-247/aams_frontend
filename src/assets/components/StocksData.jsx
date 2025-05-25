@@ -28,7 +28,12 @@ export default function StockData() {
         <table className="w-full text-sm text-gray-700 dark:text-gray-300">
           <tbody>
             {/* Pricing Section */}
-            <tr className="bg-gray-50 dark:bg-gray-800">
+            <tr
+  className="bg-gray-50 dark:bg-gray-800 transition duration-300 cursor-pointer"
+  style={{ transitionProperty: "box-shadow" }}
+  onMouseEnter={e => (e.currentTarget.style.boxShadow = '0 0 8px 4px #22c55e')}
+  onMouseLeave={e => (e.currentTarget.style.boxShadow = 'none')}
+>
               <td colSpan="2" className="px-4 py-3 font-bold text-lg">
                 Market Data
               </td>
@@ -51,7 +56,10 @@ export default function StockData() {
             />
 
             {/* Valuation Metrics */}
-            <tr className="bg-gray-50 dark:bg-gray-800">
+            <tr className="bg-gray-50 dark:bg-gray-800 transition duration-300 cursor-pointer"
+  style={{ transitionProperty: "box-shadow" }}
+  onMouseEnter={e => (e.currentTarget.style.boxShadow = '0 0 8px 4px #22c55e')}
+  onMouseLeave={e => (e.currentTarget.style.boxShadow = 'none')}>
               <td colSpan="2" className="px-4 py-3 font-bold text-lg">
                 Valuation Ratios
               </td>
@@ -75,7 +83,10 @@ export default function StockData() {
             />
 
             {/* Profitability */}
-            <tr className="bg-gray-50 dark:bg-gray-800">
+            <tr className="bg-gray-50 dark:bg-gray-800 transition duration-300 cursor-pointer"
+  style={{ transitionProperty: "box-shadow" }}
+  onMouseEnter={e => (e.currentTarget.style.boxShadow = '0 0 8px 4px #22c55e')}
+  onMouseLeave={e => (e.currentTarget.style.boxShadow = 'none')}>
               <td colSpan="2" className="px-4 py-3 font-bold text-lg">
                 Profitability
               </td>
@@ -98,7 +109,10 @@ export default function StockData() {
             />
 
             {/* Debt & Dividends */}
-            <tr className="bg-gray-50 dark:bg-gray-800">
+            <tr className="bg-gray-50 dark:bg-gray-800 transition duration-300 cursor-pointer"
+  style={{ transitionProperty: "box-shadow" }}
+  onMouseEnter={e => (e.currentTarget.style.boxShadow = '0 0 8px 4px #22c55e')}
+  onMouseLeave={e => (e.currentTarget.style.boxShadow = 'none')}>
               <td colSpan="2" className="px-4 py-3 font-bold text-lg">
                 Capital Structure
               </td>
@@ -119,9 +133,20 @@ export default function StockData() {
 }
 function TableRow({ label, value }) {
   return (
-    <tr className="border-b border-gray-200 dark:border-gray-700">
+    <tr
+      className="border-b border-gray-200 dark:border-gray-700 transition duration-300 cursor-pointer"
+      style={{
+        transitionProperty: 'box-shadow',
+      }}
+      onMouseEnter={(e) =>
+        (e.currentTarget.style.boxShadow = '0 0 8px 2px rgba(12, 105, 255, 0.5)') 
+      }
+      onMouseLeave={(e) => (e.currentTarget.style.boxShadow = 'none')}
+    >
       <th className="px-4 py-3 text-left font-medium w-1/3">{label}</th>
       <td className="px-4 py-3 text-right">{value}</td>
     </tr>
   );
 }
+
+
