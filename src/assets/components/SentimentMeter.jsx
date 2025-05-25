@@ -122,7 +122,9 @@ export default function SentimentMeter() {
               setSelectedCompany(null); // Reset selection on typing
             }}
             disabled={!csvLoaded}
-            className="w-full p-4 pl-12 rounded-full border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-60"
+            className="w-full max-w-4xl p-4 pl-12 rounded-full border-2 border-green-500 hover:border-blue-500 dark:border-green-500 dark:hover:border-blue-500 bg-gray-50 dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-60 transition-colors duration-300"
+
+
           />
           <span className="absolute left-4 top-1/2 transform -translate-y-1/2 text-blue-500">
             🔍
@@ -162,9 +164,9 @@ export default function SentimentMeter() {
           </div>
         )} */}
       </div>
-
+<br></br>
       <h3 className="text-xl font-semibold mb-2">Market Sentiment Meter</h3>
-      <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">Fear & Greed Index</p>
+      <p className="text-sm text-gray-600 dark:text-gray-400 mb-4 font-[cursive]">(Fear & Greed Index)</p>
       <div className="relative w-64 h-64 mx-auto">
         <svg viewBox="0 0 100 50" className="w-full h-full">
           <path d="M10 50 A40 40 0 0 1 90 50" fill="none" stroke="#e5e7eb" strokeWidth="10" />
