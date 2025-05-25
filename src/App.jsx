@@ -7,6 +7,7 @@ import Footer from "./assets/components/Footer";
 import TradingViewWidget from "./assets/components/TradingViewWidget";
 import NewsCards from "./assets/components/NewsCard";
 import SentimentMeter from "./assets/components/SentimentMeter";
+import StockData from "./assets/components/StocksData";
 
 export default function App() {
   const [darkMode, setDarkMode] = useState(true);
@@ -27,9 +28,11 @@ export default function App() {
       )}
       <main className="container mx-auto px-4 pt-6 pb-16">
          <SentimentMeter sentimentScore={55} />
+         <StockData/>
         <TrendingTags />
+         <NewsCards/>
         <TradingViewWidget/>
-        <NewsCards/>
+       
       </main>
        <Footer />
     </div>
