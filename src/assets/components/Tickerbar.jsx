@@ -29,7 +29,7 @@ const TickerBar = () => {
               url: 'https://indian-stock-exchange-api2.p.rapidapi.com/stock',
               params: { name },
               headers: {
-                'x-rapidapi-key': process.env.REACT_APP_RAPIDAPI_KEY,
+                'x-rapidapi-key': "39d1723794msh1f9fae095d62550p1f4e93jsn9ad8b5983ae9",
                 'x-rapidapi-host': 'indian-stock-exchange-api2.p.rapidapi.com'
               }
             };
