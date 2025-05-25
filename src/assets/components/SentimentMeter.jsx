@@ -8,16 +8,16 @@ export default function SentimentMeter() {
   const [selectedCompany, setSelectedCompany] = useState(null);
   const[sentimentScore, setScore]=useState(0);
 
-    useEffect(() => {
-      fetch('http://localhost:3000/news_sentiment/')
-        .then(res => res.json())
-        .then(newsObj => {
-          // Convert the news object to an array
+    // useEffect(() => {
+    //   fetch('http://localhost:3000/news_sentiment/')
+    //     .then(res => res.json())
+    //     .then(newsObj => {
+    //       // Convert the news object to an array
           
-          setScore(Math.round(newsObj)); // Set state with the array of news objects
-          // console.log(newsObj);
-        });
-    }, []);
+    //       setScore(Math.round(newsObj)); // Set state with the array of news objects
+    //       // console.log(newsObj);
+    //     });
+    // }, []);
 
   useEffect(() => {
   fetch("/stockName.csv")
@@ -95,7 +95,23 @@ export default function SentimentMeter() {
     setSearchQuery(entry.name); 
     console.log("Selected company:", entry.name, entry.symbol, entry.exchange);
     console.log("symbol is "+entry.symbol);
-  }
+    const url = new URL(`http://192.168.2.253:8000/stock/?company=${entry.name}&symbol=${entry.symbol}`);
+  // url.searchParams.append("name", entry.name);
+  // url.searchParams.append("symbol", entry.symbol);
+
+  fetch(url.toString())
+    .then((res) => res.json())
+    .then((response) => {
+      console.log("Backend response:", response.news_sentiment);
+      setScore(Math.round(response.news_sentiment));
+
+    })
+    .catch((err) => {
+      console.error("Error sending company data:", err);
+    });
+}
+
+  
 
   return (
     <section className="mt-8 max-w-md mx-auto text-center">

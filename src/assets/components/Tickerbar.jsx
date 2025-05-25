@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './TickerBar.css';
 
+
 const companyNames = [
   'tata steel',
   // 'icici bank',
@@ -28,7 +29,7 @@ const TickerBar = () => {
               url: 'https://indian-stock-exchange-api2.p.rapidapi.com/stock',
               params: { name },
               headers: {
-                'x-rapidapi-key': 'f2e7efde81msh8b0c0390cfcfbb2p19b315jsnea580d852aa4',
+                'x-rapidapi-key': process.env.REACT_APP_RAPIDAPI_KEY,
                 'x-rapidapi-host': 'indian-stock-exchange-api2.p.rapidapi.com'
               }
             };
